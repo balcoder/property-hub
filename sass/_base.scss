@@ -29,7 +29,7 @@ html {
 }
 
 body {
-  font-size: 1.4rem;
+
   font-family: $font-primary;
   color: $color-grey-dark-2;
   font-weight: 300;
@@ -42,5 +42,21 @@ body {
   // first row is 80% of viewport height, second row will expand to the content
   // third row is 40% of the viewport width
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
-  grid-template-columns: 8rem repeat(8, minmax(min-content, 14rem));
+  // first col is 80px then 1140px/8= 142.5px => 8 cols of 140px
+  //grid-template-columns: 8rem repeat(8,  14rem);
+  // now 8 cols with a width between min-content and 140px
+  //grid-template-columns: 8rem repeat(8, minmax(min-content, 14rem));
+  /// now we add a fractional col either side so we can have bleed sections
+  //grid-template-columns: 8rem 1fr repeat(8, minmax(min-content, 14rem)) 1fr;
+  // lets add names to the grid lines cols will have names col-start-1 up to 8
+  // grid-template-columns: [sidebar-start]8rem[sidebar-end full-start] 1fr [center-start] repeat(8,
+  //  [col-start] minmax(min-content, 14rem) [col-end] ) [center-end] 1fr [full-end];
+  // make cols either side of center have width between 6rem and 1fr
+   grid-template-columns: [sidebar-start]8rem[sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8,
+    [col-start] minmax(min-content, 14rem) [col-end] ) [center-end] minmax(6rem, 1fr) [full-end];
+
+   & >* {
+     padding: 40px;
+     font-size: 3rem;
+   }
 }
