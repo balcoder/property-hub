@@ -4,9 +4,18 @@
 
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(7, 5vw); //tie row height to % of viewport width
+  //tie row height to % of viewport width for reaponsiveness
+  grid-template-rows: repeat(7, 5vw);
   grid-gap: 1.5rem;
   padding: 1.5rem;
+
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // fit img to grid cell without overflowing in height
+    display: block; // get rid of small white space after each photo
+  }
 
   &__item {
     //position each img on the grid
@@ -79,13 +88,5 @@
       grid-row: 6 / span 2;
       grid-column: 8/ span 1;
     }
-
-  }
-
-  &__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; // fit img to grid cell without overflowing in height
-    display: block; // get rid of small white space after each photo
   }
 }
