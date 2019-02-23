@@ -17,7 +17,11 @@
 
   @media only screen and (max-width: $breakpoint-medium) {
     grid-column: full-start / -1;
-    
+
+  }
+
+  @media only screen and (max-width: $breakpoint-small) {
+      padding: 5rem;
   }
 
   &__logo {

@@ -11,8 +11,6 @@
 
   @media only screen and (max-width: $breakpoint-medium) {
     grid-column: full-start / full-end;
-
-
   }
 
   &__list {
@@ -24,6 +22,11 @@
 
     @media only screen and (max-width: $breakpoint-medium) {
         grid-template-columns:repeat(3, min-content max-content);
+        grid-column-gap: 2vw;
+    }
+
+    @media only screen and (max-width: $breakpoint-small) {
+        grid-template-columns: min-content max-content;
         grid-column-gap: 2vw;
     }
 
